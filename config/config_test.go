@@ -7,6 +7,6 @@ import (
 
 func TestSetupConfig(t *testing.T) {
 
-	SetupConfig("../redis.server")
+	SetupConfig("../redis.config")
 	fmt.Println(Properties)
 }
