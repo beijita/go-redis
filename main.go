@@ -26,7 +26,6 @@ func main() {
 	} else {
 		config.Properties = defaultProperties
 	}
-
 }
 
 var defaultProperties = &config.ServerProperties{
