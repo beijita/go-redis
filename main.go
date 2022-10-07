@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"go-redis/config"
+	"go-redis/transport/redis/server"
+	"go-redis/transport/tcp"
 	"os"
 )
 
@@ -26,6 +28,8 @@ func main() {
 	} else {
 		config.Properties = defaultProperties
 	}
+	address := fmt.Sprintf("%s:%d", config.Properties.Bind, config.Properties.Port)
+	tcp.ListenAndServeWithSignal(&tcp.Config{Address: address}, server.NewHandler())
 }
 
 var defaultProperties = &config.ServerProperties{
